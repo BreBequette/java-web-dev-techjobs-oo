@@ -45,6 +45,48 @@ public class Job {
         return Objects.hash(getId());
     }
 
+    @Override
+    public String toString() {
+        String jobString;
+        String error = "Data not available";
+        int anId = this.id;
+        String aName = this.name;
+        String anEmployer = this.employer.toString();
+        String aLocation = this.location.toString();
+        String aPositionType = this.positionType.toString();
+        String aCoreCompetency = this.coreCompetency.toString();
+
+        //check for empty fields
+        if (aName == ""){
+            aName = error;
+        }
+
+        if (anEmployer == null){
+            anEmployer = error;
+        }
+
+        if (aLocation == null){
+            aLocation = error;
+        }
+
+        if (aPositionType == null){
+            aPositionType = error;
+        }
+
+        if (aCoreCompetency == null){
+            aCoreCompetency = error;
+        }
+
+        //if all fields are empty, declare an error message. if not, print all fields
+        if (aName == error && anEmployer == error && aLocation == error && aPositionType == error && aCoreCompetency == error){
+            jobString = "OOPS! This job does not seem to exist.";
+        } else {
+            jobString = "\nID: " + anId + "\nName: " + aName + "\nEmployer: " + anEmployer + "\nLocation: " + aLocation + "\nPosition Type: " + aPositionType + "\nCore Competency: " + aCoreCompetency + "\n";
+        }
+
+        return jobString;
+    }
+
     // TODO: Add getters for each field EXCEPT nextId. Add setters for each field EXCEPT nextID
     //  and id.
     public int getId() {

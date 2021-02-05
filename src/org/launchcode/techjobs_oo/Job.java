@@ -51,40 +51,38 @@ public class Job {
         String error = "Data not available";
         int anId = this.id;
         String aName = this.name;
-        String anEmployer = this.employer.toString();
-        String aLocation = this.location.toString();
-        String aPositionType = this.positionType.toString();
-        String aCoreCompetency = this.coreCompetency.toString();
+        String anEmployer = this.employer.getValue();
+        String aLocation = this.location.getValue();
+        String aPositionType = this.positionType.getValue();
+        String aCoreCompetency = this.coreCompetency.getValue();
 
         //check for empty fields
-        if (aName == ""){
+        if (aName.equals("")){
             aName = error;
         }
 
-        if (anEmployer == null){
+        if (anEmployer.equals("")){
             anEmployer = error;
         }
 
-        if (aLocation == null){
+        if (aLocation.equals("")){
             aLocation = error;
         }
 
-        if (aPositionType == null){
+        if (aPositionType.equals("")){
             aPositionType = error;
         }
 
-        if (aCoreCompetency == null){
+        if (aCoreCompetency.equals("")){
             aCoreCompetency = error;
         }
 
         //if all fields are empty, declare an error message. if not, print all fields
-//        if (aName == error && anEmployer == error && aLocation == error && aPositionType == error && aCoreCompetency == error){
-//            jobString = "OOPS! This job does not seem to exist.";
-//        } else {
-//            jobString = "\nID: " + anId + "\nName: " + aName + "\nEmployer: " + anEmployer + "\nLocation: " + aLocation + "\nPosition Type: " + aPositionType + "\nCore Competency: " + aCoreCompetency + "\n";
-//        }
-
-        jobString = "\nID: " + anId + "\nName: " + aName + "\nEmployer: " + anEmployer + "\nLocation: " + aLocation + "\nPosition Type: " + aPositionType + "\nCore Competency: " + aCoreCompetency + "\n";
+        if (aName.equals(error) && anEmployer.equals(error) && aLocation.equals(error) && aPositionType.equals(error) && aCoreCompetency.equals(error)){
+            jobString = "\nID: " + anId + "\nOOPS! This job does not seem to exist.";
+        } else {
+            jobString = "\nID: " + anId + "\nName: " + aName + "\nEmployer: " + anEmployer + "\nLocation: " + aLocation + "\nPosition Type: " + aPositionType + "\nCore Competency: " + aCoreCompetency + "\n";
+        }
 
         return jobString;
     }

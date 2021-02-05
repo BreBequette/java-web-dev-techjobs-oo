@@ -45,8 +45,8 @@ public class JobTest {
     @Test
     public void testJobsToString(){
         Job test_job = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
-        Job test_job2 = new Job("Product tester", new Employer(), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
-        Job test_job3 = new Job();
+        Job test_job2 = new Job("Product tester", new Employer(""), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        Job test_job3 = new Job("", new Employer(""), new Location(""), new PositionType(""), new CoreCompetency(""));
         String testOutput1 = "\nID: " + test_job.getId() + "\nName: " + test_job.getName() + "\nEmployer: " + test_job.getEmployer() + "\nLocation: " + test_job.getLocation() + "\nPosition Type: " + test_job.getPositionType() + "\nCore Competency: " + test_job.getCoreCompetency() + "\n";
         String testOutput2 = "\nID: " + test_job2.getId() + "\nName: " + test_job2.getName() + "\nEmployer: Data not available" + "\nLocation: " + test_job2.getLocation() + "\nPosition Type: " + test_job2.getPositionType() + "\nCore Competency: " + test_job2.getCoreCompetency() + "\n";
         //test each field has a label and a value
@@ -54,7 +54,8 @@ public class JobTest {
         //test "Data not available" for empty field
         assertEquals(testOutput2, test_job2.toString());
         //test error message if all fields (besides ID) are empty
-        //assertEquals("OOPS! This job does not seem to exist.", test_job3.toString());
+        assertEquals("\nID: 5\nOOPS! This job does not seem to exist.", test_job3.toString());
+        assertEquals(5, test_job3.getId());
     }
 
 }

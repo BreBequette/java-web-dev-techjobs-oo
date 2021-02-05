@@ -78,11 +78,13 @@ public class Job {
         }
 
         //if all fields are empty, declare an error message. if not, print all fields
-        if (aName == error && anEmployer == error && aLocation == error && aPositionType == error && aCoreCompetency == error){
-            jobString = "OOPS! This job does not seem to exist.";
-        } else {
-            jobString = "\nID: " + anId + "\nName: " + aName + "\nEmployer: " + anEmployer + "\nLocation: " + aLocation + "\nPosition Type: " + aPositionType + "\nCore Competency: " + aCoreCompetency + "\n";
-        }
+//        if (aName == error && anEmployer == error && aLocation == error && aPositionType == error && aCoreCompetency == error){
+//            jobString = "OOPS! This job does not seem to exist.";
+//        } else {
+//            jobString = "\nID: " + anId + "\nName: " + aName + "\nEmployer: " + anEmployer + "\nLocation: " + aLocation + "\nPosition Type: " + aPositionType + "\nCore Competency: " + aCoreCompetency + "\n";
+//        }
+
+        jobString = "\nID: " + anId + "\nName: " + aName + "\nEmployer: " + anEmployer + "\nLocation: " + aLocation + "\nPosition Type: " + aPositionType + "\nCore Competency: " + aCoreCompetency + "\n";
 
         return jobString;
     }
